@@ -1,0 +1,71 @@
+---
+interface Props {
+    lang: "en" | "es";
+}
+
+const links = {
+    en: {
+        History: "/en/history",
+        Team: "/en/team",
+        Services: "/en/services",
+        Contact: "/en/contact",
+    },
+    es: {
+        Historia: "/es/history",
+        Equipo: "/es/team",
+        Servicios: "/es/services",
+        Contacto: "/es/contact",
+    }
+}
+
+const {lang} = Astro.props;
+
+
+const SelectedLinks = links[lang];
+---
+
+<footer>
+    <div class="logo">
+        <a href=`/${lang}`>
+            <img src="../../images/logo-white.svg" alt="VIPCapital's logo">
+        </a>
+
+    </div>
+    <div class="nav-links">
+        {
+            Object.entries(SelectedLinks).map(([name, link]) => (
+                <a href={link} class="main-text link-text">{name}</a>
+            ))
+        }
+    </div>
+    <br>
+    <p class="main-text">Copyright VIPCapital 2023</p>
+</footer>
+
+<style>
+    footer {
+        background-color: var(--primary);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-top: 1px solid white;
+        margin-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .nav-links {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+    }
+    .logo {
+        height: 100px;
+    }
+    .logo img {
+        height: 100%;
+    }
+</style>

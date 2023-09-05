@@ -1,0 +1,78 @@
+---
+interface Props {
+    icon: string;
+    title: string;
+    description: string;
+    bulletPoints: string[];
+    pointy: "tl"| "tr" | "bl" | "br";
+}
+
+const { icon, title, description, pointy, bulletPoints }= Astro.props;
+
+import SimpleCard from '../layouts/SimpleCard.astro';
+
+import { Icon } from 'astro-icon';
+---
+
+<SimpleCard
+    color='white'
+    pointy={pointy}
+>
+
+<div class="content">
+    <div class="icon-wrapper">
+        <Icon name={icon} pack="mdi" />
+    </div>
+    <div class="text">
+        <h2 class="h2 text-primary">{title}</h2>
+        <p class="main-text">{description}</p>
+        <ul>
+            {bulletPoints.map((point) => (
+                <li class="main-text">{point}</li>
+            ))}
+        </ul>
+    </div>
+</div>
+
+
+</SimpleCard>
+
+<style>
+    .content {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .icon-wrapper {
+        width: 120px;
+        height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    [astro-icon] {
+        color: var(--primary);
+    }
+
+    .text {
+        max-width: 400px;
+
+    }
+    .text h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .text li {
+        /* change dot color */
+        
+    }
+
+
+</style>
+

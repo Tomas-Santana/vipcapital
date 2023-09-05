@@ -1,0 +1,115 @@
+---
+interface Props {
+    backgroundImage: string;
+    title: string;
+    subtitle: string;
+    lang: "en"|"es"|string;
+}
+
+import TextArrow from './TextArrow.astro';
+
+const {backgroundImage, title, subtitle, lang} = Astro.props;
+
+const backgroundImageUrl = `url(${backgroundImage})`;
+
+---
+
+<header class="hero">
+    <div class="content">
+        <div class="text">
+            <h1 class="h1 text-white">
+                {title}
+            </h1>
+            <p class="main-text text-white">
+                {subtitle}
+            </p>
+            <TextArrow 
+                hoverColor='var(--secondary)'
+                text={lang === 'en' ? 'Get in touch' : 'Contáctanos'}
+                link=`${lang}/contact`
+                color='white'
+            />
+        </div>
+    </div>
+    <div class="hero-image">
+        <div class="image-container" />
+    </div>
+</header>
+
+<style define:vars={{ backgroundImageUrl }}>
+
+    .content {
+        max-width: 100%;
+    }
+
+    .hero {
+        position: relative;
+        height: 400px;
+        max-width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        padding: 0 20px;
+        padding-bottom: var(--section-separator);
+
+    }
+    .text {
+        max-width: 600px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    .hero-image {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+    .image-container {
+        background: var(--backgroundImageUrl) no-repeat center center / cover; 
+        height: inherit;
+        width: inherit;
+
+        filter: brightness(0.5);
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+
+    /* arrow */
+    .arrow-text {
+        transition: 0.3s ease-in-out;
+    }
+    .arrow-text:hover {
+        color: var(--secondary)
+    }
+    .link {
+        display: flex;
+        gap: 10px;
+    }
+    .arrow {
+        display: flex;
+        align-items: center;
+    }
+    .arrow .body {
+        width: 20px;
+        height: 2px;
+        background-color: var(--secondary);
+        margin-right: 10px;
+        transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+    .link:hover .arrow .body {
+        width: 60px;
+    }
+    .arrow .head {
+        width: 10px;
+        height: 10px;
+        border-top: 2px solid var(--secondary);
+        border-right: 2px solid var(--secondary);
+        transform: rotate(45deg) translateX(-16px) translateY(16px);
+    }
+</style>

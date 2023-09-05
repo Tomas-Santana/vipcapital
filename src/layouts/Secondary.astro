@@ -1,0 +1,35 @@
+---
+interface Props {
+    backgroundImage: string;
+    title: string;
+    subtitle: string;
+    pageTitle: string;
+}
+
+import Layout from './Layout.astro';
+import HeroSecondary from '../components/HeroSecondary.astro';
+import Footer from '../components/Footer.astro';
+
+const {backgroundImage, title, subtitle, pageTitle} = Astro.props;
+---
+
+<Layout title={pageTitle} class:list={"layout"}>
+
+    <HeroSecondary 
+        backgroundImage={backgroundImage}
+        title={title}
+        subtitle={subtitle}
+        lang="en"
+    />
+
+    <slot />
+
+    <Footer lang='en'/>
+    
+</Layout>
+
+<style>
+    .layout {
+        width: 100vw;
+    }
+</style>

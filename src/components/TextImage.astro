@@ -1,0 +1,130 @@
+--- 
+interface Props {
+    direction: "left" | "right";
+    body: string;
+    link?: string;
+    linkText?: string;
+    title: string;
+    image: string;
+    alt: string;
+}
+
+const {alt, direction, body, link, linkText, title, image} = Astro.props;
+import TextArrow from './TextArrow.astro';
+---
+
+<div class=`container container-${direction}`>
+    <div class=`row row-${direction}`>
+        <div class="content">
+            <div class="text">
+                <h2 class="h2 text-primary">
+                    {title}
+                </h2>
+                {
+                    body.split("\n").map((paragraph) => (
+                        <p class="main-text">
+                            {paragraph}
+                        </p>
+                    ))
+                }
+                {
+                    link && linkText && (
+                        <TextArrow link={link} text={linkText} hoverColor='var(--primary)' color='var(--primary)'/>
+                    )
+                }
+            </div>
+        </div>
+    
+        <div class=`image image-${direction}`>
+            <img src={image} alt={alt} />
+        </div>
+    </div>
+</div>
+
+<style>
+    /* * {
+        border: 1px solid red;
+    } */
+    .container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .row {
+        display: flex;
+        max-width: 1000px;
+        justify-content: center;
+        align-items: center;
+        gap: 20px
+    }
+    .row-left {
+        flex-direction: row;
+    }
+
+    .row-right {
+        flex-direction: row-reverse;
+    }
+    
+    @media screen and (max-width: 920px) {
+        .row {
+            flex-direction: column-reverse;
+        }
+    }
+
+
+    .image {
+        width: 50%;
+        display: flex;
+    }
+    .image img {
+        height: 300px;
+        overflow: hidden;
+        object-fit: cover;
+    }
+    @media screen and (max-width: 920px) {
+        .image {
+            width: 100%;
+        }
+    }
+    .image-left img{
+        border-radius: 120px 0px 0px 120px;
+    }
+
+    .image-right img {
+        border-radius: 0px 120px 120px 0px;
+
+    }
+
+    @media screen and (max-width: 920px) {
+        .image img {
+            width: calc(100% - 20px);
+        }
+        
+        .image-left {
+            justify-content: flex-end;
+        }
+
+        .image-right {
+            justify-content: flex-start;
+        }
+    }
+
+    .content {
+        padding: 0px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .text {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+
+
+</style>
+

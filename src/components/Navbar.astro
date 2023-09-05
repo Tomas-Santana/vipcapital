@@ -1,0 +1,66 @@
+---
+import { Icon } from "astro-icon";
+---
+<nav>
+    <a href="/" class="brand-logo">VIPCapital</a>
+    <ul class="nav-links">
+        <li><a href="/historia">Historia</a></li>
+        <li><a href="/presencia">Presencia</a></li>
+        <li><a href="/equipo">Equipo</a></li>
+        <li><a href="/servicios">Servicios</a></li>
+        <li><a href="/Contacto">Contacto</a></li>        
+    </ul>
+    <div class="lang">
+        <select name="lang-select" id="lang-select">
+            <option value="en">EN</option>
+            <option value="es">ES</option>
+        </select>
+    </div>
+    <div class="hamburger">
+        <i>menu</i>
+    </div>
+
+</nav>
+
+<style>
+    nav {
+        background-color: #fff;
+        border-radius: calc(60px/2);
+
+
+        position: fixed;
+        margin: 20px;
+        height: 60px;
+        width: calc(100% - 40px);
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    nav ul {
+        padding: 0;
+        gap: 20px;
+        display: flex;
+        justify-content: space-between;
+    }
+    nav ul li {
+        list-style: none;
+    }
+    nav .hamburger {
+        display: none;
+    }
+    @media screen and (max-width: 768px) {
+        nav ul {
+            display: none;
+        }
+        nav .hamburger {
+            display: block;
+        }
+    }   
+</style>
+
+<script>
+    import Micromodal from 'micromodal';
+
+
+
+</script>

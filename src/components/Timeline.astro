@@ -1,0 +1,57 @@
+---
+
+---
+<div class="container">
+    <div class="timeline">
+        <div class="timestamp">
+            <div class="year">
+                <h2 class="h2 text-primary">2001</h2>
+            </div>
+            <div class="timedot"></div>
+            <div class="description main-text">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda maiores ab esse itaque rem reiciendis obcaecati. Doloribus aperiam obcaecati incidunt fugiat ipsa necessitatibus, voluptatem amet perferendis sapiente, praesentium deleniti eos.
+            </div>
+        </div>
+        <div class="line"></div>
+    </div>
+</div>
+
+<style>
+    .container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .timeline {
+        width: 600px;
+        max-width: 100%;
+        height: 600px;
+        border: 1px solid red;
+        display: grid;
+        grid-template-rows: auto min-content 16px;
+    }
+    .line {
+        width: 3px;
+        height: 100%;
+        background: var(--primary);
+        grid-area: 1 / 1 / 4 / 2;
+    }
+    .timestamp {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        grid-area: 2 / 1 / 3 / 2;
+        margin: 0 -20px;
+    }
+    .timedot {
+        flex: 0 0 auto;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: var(--secondary);
+    }
+    .description {
+    }
+</style>

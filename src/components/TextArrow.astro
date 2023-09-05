@@ -1,0 +1,58 @@
+---
+interface Props {
+    hoverColor: string;
+    color: string;
+    text: string;
+    link: string;
+}
+const { hoverColor, color, text, link } = Astro.props;
+---
+
+<a href={link} class="main-text text-white link">
+    <span class="arrow-text" >{text}</span>
+     <span class="arrow">
+        <span class="body"></span>
+        <span class="head"></span>
+     </span>
+</a>
+
+<style define:vars={{hoverColor, color}}>
+    .arrow-text {
+        text-decoration: none;
+        color: var(--color);
+    }
+    .arrow-text {
+        transition: 0.3s ease-in-out;
+    }
+    .arrow-text:hover {
+        color: var(--hoverColor)
+    }
+    .link {
+        display: flex;
+        gap: 10px;
+    }
+    .arrow {
+        display: flex;
+        align-items: center;
+    }
+    .arrow .body {
+        width: 20px;
+        height: 2px;
+        background-color: var(--hoverColor);
+        margin-right: 10px;
+        transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+    .link:hover .arrow .body, .link:focus .arrow .body {
+        width: 60px;
+    }
+    .link:hover .arrow-text, .link:focus .arrow-text {
+        color: var(--hoverColor);
+    }
+    .arrow .head {
+        width: 10px;
+        height: 10px;
+        border-top: 2px solid var(--hoverColor);
+        border-right: 2px solid var(--hoverColor);
+        transform: rotate(45deg) translateX(-16px) translateY(16px);
+    }
+</style>

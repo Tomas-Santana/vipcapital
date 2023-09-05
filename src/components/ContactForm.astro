@@ -1,0 +1,140 @@
+---
+interface Props {
+    lang: "es" | "en";
+}
+
+let {lang} = Astro.props;
+
+const textEn = {
+    title: 'Get in touch',
+    subtitle: 'Fill out the form below and we will get back to you as soon as possible.',
+    name: 'Contact name',
+    email: 'Email address',
+    phone: 'Phone number',
+    message: 'Details',
+    submit: 'Send',
+    infoPhone: 'Phone',
+    infoEmail: 'Email',   
+}
+const textEs = {
+    title: 'Contacto',
+    subtitle: 'Rellena el formulario y nos pondremos en contacto contigo lo antes posible.',
+    name: 'Nombre',
+    email: 'Email',
+    phone: 'Teléfono',
+    message: 'Mensaje',
+    submit: 'Enviar',
+    infoPhone: 'Teléfono',
+    infoEmail: 'Email',
+}
+
+const text = lang === 'en' ? textEn : textEs;
+---
+<div class="form-wrapper">
+    <div class="form-location">
+        <div class="form-title">
+            <div class="text">
+                <h2 class="h2">{text.title}</h2>
+                <p class="main-text">{text.subtitle}</p>
+            </div>
+            <form action="">
+                <input type="text" placeholder={text.name}>
+                <input type="email" placeholder={text.email}>
+                <input type="tel" placeholder={text.phone}>
+                <textarea placeholder={text.message} rows="2"></textarea>
+                <button class="button-secondary main-text" type="submit">{text.submit}</button>
+        
+            </form>
+        </div>
+    
+        <div class="location">
+            <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1243.6641552565875!2d-66.8439778834157!3d10.497705089196332!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c2a59b1f75ae1e5%3A0x124565c970e18c0a!2sParque%20Cristal%2C%20Avenida%20Francisco%20de%20Miranda%2C%20Caracas%201060%2C%20Miranda%2C%20Venezuela!5e0!3m2!1ses!2sus!4v1693945915760!5m2!1ses!2sus" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+</div>
+
+<style>
+    .form-title {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        height: 450px;
+        width: 50%;
+        padding: 20px;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: flex-start;
+        height: 450px;
+        width: 100%;
+
+    }
+    @media screen and (max-width: 768px) {
+        .form-title {
+            width: calc(100% - 40px);
+            height: auto;
+        }
+        form {
+            max-width: 100%;
+        }
+        form button {
+            align-self: center;
+            min-width: 100%;
+        }
+    }
+        
+    
+    input, textarea {
+        all: unset;
+        border-bottom: 1px solid grey;
+        padding-bottom: 5px;
+        width: inherit;
+    }
+    .form-location {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        gap: 20px;
+        align-items: center;
+        width: 100%;
+    }
+    @media screen and (max-width: 768px) {
+        .form-location {
+            flex-direction: column;
+        } 
+    }
+    .text {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        max-width: 600px;
+        margin-bottom: 20px;
+    }
+    .location {
+        width: 50%;
+    }
+    @media screen and (max-width: 768px) {
+        .location {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+        }
+    }
+    .map {
+        width: 100%;
+        height: 650px;
+        border-radius: 0 260px 260px 0;
+    }
+    @media screen and (max-width: 768px) {
+        .map {
+            width: calc(100% - 20px);
+            height: 450px;
+            border-radius: 0 180px 180px 0;
+        }
+    }
+        
+</style>
+
