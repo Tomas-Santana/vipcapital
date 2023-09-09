@@ -1,23 +1,52 @@
 ---
 import { Icon } from "astro-icon";
+import LanguagePicker from "./LanguagePicker.astro";
+import Hamburger from "./Hamburger.astro";
+
+interface Props {
+  lang: string;  
+}
+const {lang} = Astro.props
+
+const links = {
+    en: {
+        History: "/en/history",
+        Presence: "/en/#experience",
+        Team: "/en/team",
+        Services: "/en/services",
+        Contact: "/en/contact",
+    },
+    es: {
+        Historia: "/es/history",
+        Presencia: "/es/#experience",
+        Equipo: "/es/team",
+        Servicios: "/es/services",
+        Contacto: "/es/contact",
+    }
+}
+const selectedLinks = links[lang]
 ---
 <nav>
-    <a href="/" class="brand-logo">VIPCapital</a>
+    <a href=`/${lang}` class="brand-logo">
+        <img src="../../logo.svg" alt="">
+    </a>
     <ul class="nav-links">
-        <li><a href="/historia">Historia</a></li>
-        <li><a href="/presencia">Presencia</a></li>
-        <li><a href="/equipo">Equipo</a></li>
-        <li><a href="/servicios">Servicios</a></li>
-        <li><a href="/Contacto">Contacto</a></li>        
+        {
+            Object.keys(selectedLinks).map((link) => (
+                <li>
+                    <a class="main-text link-text text-primary" href={selectedLinks[link]}>{link}</a>
+                </li>
+            ))
+        }        
     </ul>
     <div class="lang">
-        <select name="lang-select" id="lang-select">
-            <option value="en">EN</option>
-            <option value="es">ES</option>
-        </select>
+        <LanguagePicker selected={lang}/>
     </div>
+    <!-- <div class="hamburger">
+        <Icon name="dots-horizontal" pack="mdi"/> 
+    </div> -->
     <div class="hamburger">
-        <i>menu</i>
+        <Hamburger lang={lang} links={selectedLinks}/>
     </div>
 
 </nav>
@@ -26,15 +55,24 @@ import { Icon } from "astro-icon";
     nav {
         background-color: #fff;
         border-radius: calc(60px/2);
-
-
         position: fixed;
         margin: 20px;
         height: 60px;
         width: calc(100% - 40px);
-        display: flex;
-        justify-content: space-around;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-content: center;
         align-items: center;
+        z-index: 2;
+        box-shadow: 0 1px 0 1px rgb(0, 0, 0, 0.1);
+    }
+    @media screen and (max-width: 500px) {
+        nav {
+            grid-template-columns: 3fr 1fr 1fr;
+        }
+        .lang {
+            justify-self: center!important;
+        }
     }
     nav ul {
         padding: 0;
@@ -45,22 +83,38 @@ import { Icon } from "astro-icon";
     nav ul li {
         list-style: none;
     }
-    nav .hamburger {
+    .hamburger {
         display: none;
     }
-    @media screen and (max-width: 768px) {
+    .lang {
+        justify-self: center;
+    }
+    .brand-logo {
+        justify-self: center;
+    }
+    .brand-logo img {
+        height: 35px;
+    }
+    @media screen and (max-width: 850px) {
+
         nav ul {
             display: none;
         }
-        nav .hamburger {
-            display: block;
+        nav {
+        }
+        .hamburger {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            justify-self: center;
+        }
+        .hamburger svg {
+            height: 40px;
+            width: 40px;
+            color: var(--primary);
+        }
+        .lang {
+            justify-self: right;
         }
     }   
 </style>
-
-<script>
-    import Micromodal from 'micromodal';
-
-
-
-</script>

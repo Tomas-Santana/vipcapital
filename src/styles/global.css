@@ -58,6 +58,13 @@ section {
         line-height: 4rem;
     }
 }
+@media screen and (max-width: 400px) {
+    .h1 {
+        font-size: 3rem;
+        line-height: 3rem;
+    }
+}
+
 .h1, .h2, .main-text, .main-text-little {
     margin: 0;
 }

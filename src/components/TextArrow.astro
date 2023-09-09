@@ -7,8 +7,7 @@ interface Props {
 }
 const { hoverColor, color, text, link } = Astro.props;
 ---
-
-<a href={link} class="main-text text-white link">
+<a href=`${link}` class="main-text text-white link">
     <span class="arrow-text" >{text}</span>
      <span class="arrow">
         <span class="body"></span>

@@ -1,5 +1,6 @@
 ---
 interface Props {
+    nonMargin?: boolean;
     lang: "en" | "es";
 }
 
@@ -18,13 +19,15 @@ const links = {
     }
 }
 
-const {lang} = Astro.props;
+const {lang, nonMargin} = Astro.props;
+
+const extraClass = nonMargin ? "non-margin" : "";
 
 
 const SelectedLinks = links[lang];
 ---
 
-<footer>
+<footer class=`${extraClass}`>
     <div class="logo">
         <a href=`/${lang}`>
             <img src="../../images/logo-white.svg" alt="VIPCapital's logo">
@@ -54,7 +57,9 @@ const SelectedLinks = links[lang];
         margin-top: 60px;
         padding-bottom: 60px;
     }
-
+    footer.non-margin {
+        margin-top: 0;
+    }
     .nav-links {
         display: flex;
         justify-content: center;

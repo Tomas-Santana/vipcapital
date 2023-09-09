@@ -5,11 +5,38 @@
     <div class="timeline">
         <div class="timestamp">
             <div class="year">
-                <h2 class="h2 text-primary">2001</h2>
+                <h2 class="year-text text-primary">~1990</h2>
             </div>
             <div class="timedot"></div>
             <div class="description main-text">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda maiores ab esse itaque rem reiciendis obcaecati. Doloribus aperiam obcaecati incidunt fugiat ipsa necessitatibus, voluptatem amet perferendis sapiente, praesentium deleniti eos.
+                Los socios de VIPCapital trabajaron durante la década de los noventa y la primera década del siglo actual en banca de inversión en Nueva York, estructurando y cerrando decenas de transacciones financieras complejas en toda Latinoamérica.
+            </div>
+        </div>
+        <div class="timestamp">
+            <div class="year">
+                <h2 class="year-text text-primary">2002</h2>
+            </div>
+            <div class="timedot"></div>
+            <div class="description main-text">
+                Se funda la firma con el nombre de Venezuela Investment Partners, con el objetivo de proporcionar asesoría de finanzas corporativas de la más alta calidad a multinacionales y a conglomerados tradicionales venezolanos.
+            </div>
+        </div>
+        <div class="timestamp">
+            <div class="year">
+                <h2 class="year-text text-primary year-text">2011</h2>
+            </div>
+            <div class="timedot"></div>
+            <div class="description main-text">
+                La firma lanza su nueva imagen corporativa: VIPCapital. Además, comienza su expansión regional, formando alianzas por todo el continente Americano y en España.
+            </div>
+        </div>
+        <div class="timestamp">
+            <div class="year">
+                <h2 class="year-text text-primary">Ahora</h2>
+            </div>
+            <div class="timedot"></div>
+            <div class="description main-text">
+                VIPCapital cuenta con catorce banqueros de inversión con sede en Caracas, que suman años de experiencia en asesoría de finanzas corporativas en áreas que incluyen fusiones y adquisiciones, levantamiento de deuda y capital, financiamiento estructurado y de proyectos.
             </div>
         </div>
         <div class="line"></div>
@@ -25,33 +52,69 @@
         align-items: center;
     }
     .timeline {
-        width: 600px;
+        width: 300px;
+        height: 1100px;
         max-width: 100%;
-        height: 600px;
-        border: 1px solid red;
-        display: grid;
-        grid-template-rows: auto min-content 16px;
+        overflow-x: visible;
+        position: relative;
     }
     .line {
         width: 3px;
         height: 100%;
         background: var(--primary);
-        grid-area: 1 / 1 / 4 / 2;
+        position: absolute;
+        z-index: -1;
+        left: 27.5%;
+        transform: translateX(-50%);
+        top: 0;
     }
     .timestamp {
-        display: flex;
-        gap: 20px;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 30px;
         align-items: center;
-        grid-area: 2 / 1 / 3 / 2;
-        margin: 0 -20px;
+        overflow-x: visible;
+        width: 600px;
+        margin-top: 40px;
+    }
+    .year {
+        justify-content: right;
+        width: calc(100% - 10px);
+    }
+    .year-text {
+        text-align: right;
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin: 0;
     }
     .timedot {
+        position: absolute;
+        left: 24.5%;
         flex: 0 0 auto;
         width: 20px;
         height: 20px;
         border-radius: 50%;
         background: var(--secondary);
     }
+    @media screen and (min-width: 701px) {
+        .timestamp {
+            grid-template-columns: 80px 300px;
+        }
+    }
+    @media screen and (max-width: 700px) {
+        .timestamp {
+            width: 100%;
+            gap: 40px;
+        }
+        .line {
+            left: 32%;
+        }
+        .timedot {
+            position: absolute;
+            left: 28.5%;
+        }
+    }
     .description {
     }
+    
 </style>

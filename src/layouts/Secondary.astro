@@ -4,13 +4,19 @@ interface Props {
     title: string;
     subtitle: string;
     pageTitle: string;
+    nonMargin?: boolean;
+    lang: string;
 }
 
 import Layout from './Layout.astro';
 import HeroSecondary from '../components/HeroSecondary.astro';
 import Footer from '../components/Footer.astro';
 
-const {backgroundImage, title, subtitle, pageTitle} = Astro.props;
+const {backgroundImage, title, subtitle, pageTitle, lang} = Astro.props;
+
+let {nonMargin} = Astro.props;
+if (nonMargin === undefined) nonMargin = false;
+
 ---
 
 <Layout title={pageTitle} class:list={"layout"}>
@@ -19,12 +25,12 @@ const {backgroundImage, title, subtitle, pageTitle} = Astro.props;
         backgroundImage={backgroundImage}
         title={title}
         subtitle={subtitle}
-        lang="en"
+        lang={lang}
     />
 
     <slot />
 
-    <Footer lang='en'/>
+    <Footer lang='en' nonMargin={nonMargin}/>
     
 </Layout>
 

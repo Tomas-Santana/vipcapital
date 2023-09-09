@@ -1,0 +1,73 @@
+---
+import Navbar from "../../components/Navbar.astro";
+import Hero from "../../components/Hero.astro";
+import TextImage from "../../components/TextImage.astro";
+import Map from "../../components/Map.astro";
+import Footer from "../../components/Footer.astro";
+import ContactForm from "../../components/ContactForm.astro";
+
+import Layout from "../../layouts/Layout.astro";
+import FlexColumn from "../../layouts/FlexColumn.astro";
+---
+
+
+<Layout title="Homepage">
+    <main>
+        <Navbar lang="en"/>
+        <header>
+            <Hero/>
+        </header>
+        <section class="who-we-are">
+            <FlexColumn>
+                <TextImage
+                title="Asesoría de clase mundial"
+                body="Los socios de VIPCapital acumulan años de experiencia de banca de inversión en Latinoamérica. La firma cuenta con un equipo de catorce banqueros de inversión que cubren la región desde la sede en Caracas."
+                image="../../images/hero1.webp"
+                alt="helloooo"
+                direction="left"
+                link="/services"
+                linkText="Explora nuestros servicios"
+                />
+                <TextImage
+                title="Más de 20 años de trayectoria"
+                body="Fundada en 2002, VIPCapital tiene objetivo de proporcionar asesoría de finanzas corporativas de la más alta calidad a multinacionales y a conglomerados tradicionales venezolanos.Fundada en 2002, VIPCapital tiene objetivo de proporcionar asesoría de finanzas corporativas de la más alta calidad a multinacionales y a conglomerados tradicionales venezolanos."
+                image="../../images/hero2.webp"
+                alt="helloooo"
+                link="/history"
+                linkText="Conoce más sobre nosotros"
+                direction="right"
+                />
+                <TextImage
+                title="Nuestros clientes"
+                body="Durante más de 18 años, VIPCapital ha proporcionado asesoramiento financiero de clase mundial a multinacionales, empresas e instituciones del sector financiero, agencias gubernamentales internacionales, juntas directivas y comités especiales.\nVIPCapital guarda completa confidencialidad respecto a las transacciones no públicas que realiza con sus clientes."
+                alt="helloooo"
+                image="../../images/hero2.webp"
+                direction="left"
+                />
+            </FlexColumn>
+        </section>
+        <section id="experience" class="experience">
+            <Map />
+        </section>
+        <section class="contact" id="contact">
+            <ContactForm 
+                lang="en"
+            />
+        </section>
+
+
+        <Footer lang="en"/>
+    </main>
+</Layout>
+
+<style>
+    .who-we-are {
+        padding-top: var(--section-separator);
+    }
+    .experience {
+        background-color: var(--primary);
+        margin-top: calc(var(--section-separator));
+        padding: var(--section-separator) 0;
+    }
+</style>
+

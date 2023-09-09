@@ -12,6 +12,8 @@ const {backgroundImage, title, subtitle, lang} = Astro.props;
 
 const backgroundImageUrl = `url(${backgroundImage})`;
 
+const link = '/' + lang + '/#contact';
+
 ---
 
 <header class="hero">
@@ -26,7 +28,7 @@ const backgroundImageUrl = `url(${backgroundImage})`;
             <TextArrow 
                 hoverColor='var(--secondary)'
                 text={lang === 'en' ? 'Get in touch' : 'Contáctanos'}
-                link=`${lang}/contact`
+                link={link}
                 color='white'
             />
         </div>
