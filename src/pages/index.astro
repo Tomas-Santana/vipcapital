@@ -1,0 +1,21 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="VIPCapital"></Layout>
+
+
+
+<script>
+    let userLang = "en-US"
+    if (typeof window !== 'undefined') {
+        userLang = window.navigator.userLanguage || window.navigator.language;
+    }
+
+
+    if (userLang === 'es-ES') {
+        window.location.replace('/es');
+    } else {
+        window.location.replace('/en');
+    }
+</script>
