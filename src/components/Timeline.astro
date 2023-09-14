@@ -39,6 +39,12 @@ const selectedLang = langData[lang];
         }
         <div class="line"></div>
     </div>
+    <div class="img-1">
+        <img src="../../images/cubo-negro.png" alt="">
+    </div>
+    <div class="img-2">
+        <img src="../../images/telecom-2.png" alt="">
+    </div>
 </div>
 
 <style>
@@ -48,6 +54,34 @@ const selectedLang = langData[lang];
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+    .img-1 img {
+        width: 300px;
+        height: 600px;
+        object-fit: cover;
+        border-radius: 0 120px 120px 0;
+    }
+    .img-1 {
+        position: absolute;
+        top: 600px;
+        left: 0;
+    }
+    .img-2 img {
+        width: 300px;
+        height: 600px;
+        object-fit: cover;
+        border-radius: 120px 0 0 120px;
+    }
+    .img-2 {
+        position: absolute;
+        top: 800px;
+        left: calc(100% - 300px);
+    }
+
+    @media screen and (max-width: 1200px) {
+        .img-1, .img-2 {
+            display: none;
+        }
     }
     .timeline {
         width: 300px;

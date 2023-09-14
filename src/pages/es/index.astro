@@ -49,6 +49,16 @@ import FlexColumn from "../../layouts/FlexColumn.astro";
         <section id="experience" class="experience">
             <Map lang="es"/>
         </section>
+        <section class="venecapital">
+            <TextImage
+                title="Promoviendo el desarrollo del capital privado en Venezuela"
+                body="VIPCapital es miembro fundador de la Asociacion Venezolana de Capital Privado."
+                alt="Logo de Venecapital"
+                image="../../images/venecapital.png"
+                direction="right"
+                fit={true}
+            />
+        </section>
         <section class="contact" id="contact">
             <ContactForm 
                 lang="es"
@@ -68,6 +78,9 @@ import FlexColumn from "../../layouts/FlexColumn.astro";
         background-color: var(--primary);
         margin-top: calc(var(--section-separator)*2);
         padding: calc(var(--section-separator)*2) 0;
+    }
+    .venecapital {
+        background-color: rgba(0,0,0,0.05);
     }
     .contact {
         padding: calc(var(--section-separator)*2) 0;

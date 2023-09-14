@@ -7,12 +7,18 @@ interface Props {
     title: string;
     image: string;
     alt: string;
+    fit?: boolean;
 }
 
-const {alt, direction, body, link, linkText, title, image} = Astro.props;
+const {alt, direction, body, link, linkText, title, image, fit} = Astro.props;
 import TextArrow from './TextArrow.astro';
----
 
+let extraClass = "";
+if (fit) {
+    extraClass = "fit"
+}
+
+---
 <div class=`container container-${direction}`>
     <div class=`row row-${direction}`>
         <div class="content">
@@ -35,7 +41,7 @@ import TextArrow from './TextArrow.astro';
             </div>
         </div>
     
-        <div class=`image image-${direction}`>
+        <div class=`image image-${direction} ${extraClass}`>
             <img src={image} alt={alt} />
         </div>
     </div>
@@ -81,6 +87,9 @@ import TextArrow from './TextArrow.astro';
         height: 300px;
         overflow: hidden;
         object-fit: cover;
+    }
+    .fit img {
+        object-fit: contain;
     }
     @media screen and (max-width: 920px) {
         .image {
