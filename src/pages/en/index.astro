@@ -15,39 +15,39 @@ import FlexColumn from "../../layouts/FlexColumn.astro";
     <main>
         <Navbar lang="en"/>
         <header>
-            <Hero/>
+            <Hero lang="en"/>
         </header>
         <section class="who-we-are">
             <FlexColumn>
                 <TextImage
-                title="Asesoría de clase mundial"
-                body="Los socios de VIPCapital acumulan años de experiencia de banca de inversión en Latinoamérica. La firma cuenta con un equipo de catorce banqueros de inversión que cubren la región desde la sede en Caracas."
-                image="../../images/hero1.webp"
-                alt="helloooo"
+                title="World-class financial advisory services"
+                body="VIPCapital's partners have accumulated years of investment banking experience in Latin America. The firm has a team of fourteen investment bankers covering the region from its headquarters in Caracas."
+                image="../../images/caracas.webp"
+                alt="Caracas city"
                 direction="left"
-                link="/services"
-                linkText="Explora nuestros servicios"
+                link="/en/services"
+                linkText="Explore our services"
                 />
                 <TextImage
-                title="Más de 20 años de trayectoria"
-                body="Fundada en 2002, VIPCapital tiene objetivo de proporcionar asesoría de finanzas corporativas de la más alta calidad a multinacionales y a conglomerados tradicionales venezolanos.Fundada en 2002, VIPCapital tiene objetivo de proporcionar asesoría de finanzas corporativas de la más alta calidad a multinacionales y a conglomerados tradicionales venezolanos."
-                image="../../images/hero2.webp"
-                alt="helloooo"
-                link="/history"
-                linkText="Conoce más sobre nosotros"
+                title="More than 20 years of experience"
+                body="Founded in 2002, VIPCapital has aimed to provide world-class corporate finance advisory to multinationals and traditional Venezuelan conglomerates."
+                image="../../images/teletower.webp"
+                alt="A telecommunication tower"
+                link="/en/history"
+                linkText="Learn more about us"
                 direction="right"
                 />
                 <TextImage
-                title="Nuestros clientes"
-                body="Durante más de 18 años, VIPCapital ha proporcionado asesoramiento financiero de clase mundial a multinacionales, empresas e instituciones del sector financiero, agencias gubernamentales internacionales, juntas directivas y comités especiales.\nVIPCapital guarda completa confidencialidad respecto a las transacciones no públicas que realiza con sus clientes."
-                alt="helloooo"
-                image="../../images/hero2.webp"
+                title="Our clients"
+                body="VIPCapital has provided world-class financial advisory to multinationals, corporations and financial institutions, international government agencies, boards of directors and special committees for over 20 years.\nVIPCapital mantains complete confidentiality of its clients and transactions."
+                alt="Agriculture"
+                image="../../images/agricultura.webp"
                 direction="left"
                 />
             </FlexColumn>
         </section>
         <section id="experience" class="experience">
-            <Map />
+            <Map lang="en"/>
         </section>
         <section class="contact" id="contact">
             <ContactForm 
@@ -66,8 +66,11 @@ import FlexColumn from "../../layouts/FlexColumn.astro";
     }
     .experience {
         background-color: var(--primary);
-        margin-top: calc(var(--section-separator));
-        padding: var(--section-separator) 0;
+        margin-top: calc(var(--section-separator)*2);
+        padding: calc(var(--section-separator)*2) 0;
+    }
+    .contact {
+        padding: calc(var(--section-separator)*2) 0;
     }
 </style>
 

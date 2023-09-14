@@ -1,11 +1,34 @@
+---
+interface Props {
+    lang: string;    
+}
 
+const langData =  {
+    es: {
+        title: "Líderes en servicios de banca de inversión en ",
+        text: "Prestamos asesoría de clase mundial para la ejecución de transacciones financieras complejas.",
+        button: "Contáctanos",
+        href: "es/#contact"
+    },
+    en : {
+        title: "Leaders in investment banking services in ",
+        text: "We provide world-class advice for the execution of complex financial transactions.",
+        button: "Contact us",
+        href: "en/#contact"
+    }
+}
+
+const {lang} = Astro.props;
+
+const data = langData[lang];
+---
 <div class="hero">
     <div class="hero-content">
-        <h1 class="h1">Líderes en servicios de banca de inversión en <span class="text-gradient-light">Venezuela</span></h1>
-        <p class="main-text">Prestamos asesoría de clase mundial para la ejecución de transacciones financieras complejas.</p>
-        <a href="/#contact">
+        <h1 class="h1">{ data.title } <span class='text-gradient-light'>Venezuela</span></h1>
+        <p class="main-text">{ data.text }</p>
+        <a href={data.href}>
             <button class="button-secondary main-text">
-                Contáctanos
+                { data.button }
             </button>
         </a>
     </div>
@@ -17,7 +40,8 @@
 <style>
     .hero {
         width: 100%;
-        height: 100svh;
+        height: 100vh;
+        height: 100dvh;
         position: relative;
         display: flex;
         flex-direction: column;

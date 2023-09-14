@@ -1,15 +1,35 @@
 ---
 import FlexColumn from "../layouts/FlexColumn.astro";
+
+
+interface Props {
+    lang: string;
+}
+const {lang} = Astro.props;
+
+
+const langData = {
+    es: {
+        title: "Experiencia regional",
+        text: "Durante más de 3 décadas el eqiopo de VIPCapital ha estado involucrado en docenas de transacciones a lo largo y ancho de América Latina y España.  "
+    },
+    en : {
+        title: "Regional experience",
+        text: "For more than 3 decades the VIPCapital team has been involved in dozens of transactions throughout Latin America and Spain."
+    }
+}
+
+const data = langData[lang];
 ---
 
 <FlexColumn>
     <div class="content">
         <div class="text">
             <h2 class="h2 text-white">
-                Experiencia regional
+                {data.title}
             </h2>
             <p class="main-text text-white">
-                Durante más de 3 décadas el eqiopo de VIPCapital ha estado involucrado en docenas de transacciones a lo largo y ancho de América Latina y España.  
+                {data.text}
             </p>
         </div>
     </div>

@@ -15,48 +15,48 @@ import FlexColumn from "../../layouts/FlexColumn.astro";
     <main>
         <Navbar lang="es"/>
         <header>
-            <Hero/>
+            <Hero lang="es"/>
         </header>
         <section class="who-we-are">
             <FlexColumn>
                 <TextImage
                 title="Asesoría de clase mundial"
                 body="Los socios de VIPCapital acumulan años de experiencia de banca de inversión en Latinoamérica. La firma cuenta con un equipo de catorce banqueros de inversión que cubren la región desde la sede en Caracas."
-                image="../../images/hero1.webp"
-                alt="helloooo"
+                image="../../images/caracas.webp"
+                alt="La ciudad de Caracas"
                 direction="left"
-                link="/services"
+                link="/es/services"
                 linkText="Explora nuestros servicios"
                 />
                 <TextImage
                 title="Más de 20 años de trayectoria"
                 body="Fundada en 2002, VIPCapital tiene objetivo de proporcionar asesoría de finanzas corporativas de la más alta calidad a multinacionales y a conglomerados tradicionales venezolanos.Fundada en 2002, VIPCapital tiene objetivo de proporcionar asesoría de finanzas corporativas de la más alta calidad a multinacionales y a conglomerados tradicionales venezolanos."
-                image="../../images/hero2.webp"
-                alt="helloooo"
-                link="/history"
+                image="../../images/teletower.webp"
+                alt="Una torre de telecomunicaciones"
+                link="/es/history"
                 linkText="Conoce más sobre nosotros"
                 direction="right"
                 />
                 <TextImage
                 title="Nuestros clientes"
                 body="Durante más de 18 años, VIPCapital ha proporcionado asesoramiento financiero de clase mundial a multinacionales, empresas e instituciones del sector financiero, agencias gubernamentales internacionales, juntas directivas y comités especiales.\nVIPCapital guarda completa confidencialidad respecto a las transacciones no públicas que realiza con sus clientes."
-                alt="helloooo"
-                image="../../images/hero2.webp"
+                alt="Un campo de cultivo"
+                image="../../images/agricultura.webp"
                 direction="left"
                 />
             </FlexColumn>
         </section>
         <section id="experience" class="experience">
-            <Map />
+            <Map lang="es"/>
         </section>
         <section class="contact" id="contact">
             <ContactForm 
-                lang="en"
+                lang="es"
             />
         </section>
 
 
-        <Footer lang="en"/>
+        <Footer lang="es"/>
     </main>
 </Layout>
 
@@ -66,8 +66,8 @@ import FlexColumn from "../../layouts/FlexColumn.astro";
     }
     .experience {
         background-color: var(--primary);
-        margin-top: calc(var(--section-separator));
-        padding: var(--section-separator) 0;
+        margin-top: calc(var(--section-separator)*2);
+        padding: calc(var(--section-separator)*2) 0;
     }
 </style>
 

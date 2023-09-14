@@ -3,10 +3,11 @@ interface Props {
     initials: string;
     name: string;
     position: string;
-    linkedin: string;
+    linkedin?: string;
     description: string;
     pointy: "tl" | "tr" | "bl" | "br";
     color: "blue" | "white";
+    
 }
 
 const {initials, name, position, linkedin, description, pointy, color} = Astro.props;
@@ -45,9 +46,14 @@ import SimpleCard from '../layouts/SimpleCard.astro';
             <div class=`name-pos`>
                 <h2 class=`h2 ${colorClass}`>{name}</h2>
                 <p class=`main-text ${colorClass}`>{position}</p>
-                <a href={linkedin} class=`linkedin ${colorClass}`>
-                   <Icon name="linkedin" pack="mdi"/> 
-                </a>
+                {
+                    typeof linkedin !== "undefined" && 
+                    <div class="link-cont">
+                        <a href={linkedin} class=`linkedin ${colorClass}`>
+                            <Icon name="linkedin" pack="mdi"/> 
+                        </a>
+                    </div>
+                }
             </div>
         </SimpleCard>
         <SimpleCard
@@ -57,15 +63,18 @@ import SimpleCard from '../layouts/SimpleCard.astro';
         >
             <div class="back-content">
                 <div class="name-pos-back">
-                    <h2 class=`h2 text-gradient-dark`>{name}</h2>
+                    <h2 class=`h2 text-primary`>{name}</h2>
                     <p class=`main-text text-black`>{position}</p>
                 </div>
                 <p class=`main-text-little text-black description`>{description}</p>
-                <div class="link-cont">
-                    <a href={linkedin} class=`linkedin text-primary`>
-                        <Icon name="linkedin" pack="mdi"/> 
-                    </a>
-                </div>
+                {
+                    typeof linkedin !== "undefined" && 
+                    <div class="link-cont">
+                        <a href={linkedin} class='linkedin text-primary'>
+                            <Icon name="linkedin" pack="mdi"/> 
+                        </a>
+                    </div>
+                }
             </div>
         </SimpleCard>
     </div>
@@ -108,7 +117,7 @@ import SimpleCard from '../layouts/SimpleCard.astro';
         cursor: pointer;
     }
     .flip-card:hover {
-        transform: scale(1.01) 
+        transform: scale3d(1.05);
     }
     .flip-card:hover .front {
         box-shadow: 0px 0px 4px 8px rgba(0,0,0,0.2)!important;
