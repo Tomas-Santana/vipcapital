@@ -25,6 +25,16 @@ const links = {
     }
 }
 const selectedLinks = links[lang]
+
+
+const hamburgerLinks = {...selectedLinks}
+
+if( lang === "en") {
+    delete hamburgerLinks["Contact"]
+}
+if( lang === "es") {
+    delete hamburgerLinks["Contacto"]
+}
 ---
 <nav>
     <a href=`/${lang}` class="brand-logo">
@@ -46,7 +56,7 @@ const selectedLinks = links[lang]
         <Icon name="dots-horizontal" pack="mdi"/> 
     </div> -->
     <div class="hamburger">
-        <Hamburger lang={lang} links={selectedLinks}/>
+        <Hamburger lang={lang} links={hamburgerLinks}/>
     </div>
 
 </nav>
