@@ -37,7 +37,7 @@ const text = lang === 'en' ? textEn : textEs;
                 <h2 class="h2">{text.title}</h2>
                 <p class="main-text">{text.subtitle}</p>
             </div>
-            <form action="">
+            <form data-netlify="true" method="POST">
                 <input type="text" placeholder={text.name}>
                 <input type="email" placeholder={text.email}>
                 <input type="tel" placeholder={text.phone}>
