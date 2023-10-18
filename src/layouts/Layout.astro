@@ -5,9 +5,12 @@ interface Props {
 	title: string;
 }
 
-const canonicalURL = "https://vip-capital.com";
+const canonicalURL = "https://vip-capital.netlify.app";
 
-const resolvedImageWithDomain = new URL("images/vip-capital-screenshot.png", Astro.site).toString();
+const resolvedImageWithDomain = new URL(
+  "/images/vip-capital-screenshot.png",
+  canonicalURL
+).toString();
 
 const { title } = Astro.props;
 ---
