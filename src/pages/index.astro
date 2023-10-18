@@ -1,12 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import FlexColumn from "../layouts/FlexColumn.astro";
+import TextImage from "../components/TextImage.astro";
 ---
 
-<Layout title="VIPCapital"></Layout>
-
-
-
-<script>
+<script is:inline>
     let userLang = "en-US"
     if (typeof window !== 'undefined') {
         userLang = window.navigator.userLanguage || window.navigator.language;
@@ -19,3 +18,41 @@ import Layout from "../layouts/Layout.astro";
         window.location.replace('/en');
     }
 </script>
+<Layout title="VIPCapital">
+    <main>
+        <header>
+            <Hero lang="en"/>
+        </header>
+        <section class="who-we-are">
+            <FlexColumn>
+                <TextImage
+                title="World-class financial advisory services"
+                body="VIPCapital's partners have accumulated years of investment banking experience in Latin America. The firm has a team of more than ten investment bankers covering the region from its headquarters in Caracas."
+                image="../../images/caracas.webp"
+                alt="Caracas city"
+                direction="left"
+                link="/en/services"
+                linkText="Explore our services"
+                />
+                <TextImage
+                title="More than 20 years of experience"
+                body="Founded in 2002, VIPCapital has aimed to provide world-class corporate finance advisory to multinationals and traditional Venezuelan conglomerates."
+                image="../../images/teletower.webp"
+                alt="A telecommunication tower"
+                link="/en/history"
+                linkText="Learn more about us"
+                direction="right"
+                />
+                <TextImage
+                title="Our clients"
+                body="VIPCapital has provided world-class financial advisory to multinationals, corporations and financial institutions, international government agencies, boards of directors and special committees for over 20 years.\nVIPCapital mantains complete confidentiality of its clients and transactions."
+                alt="Agriculture"
+                image="../../images/agricultura.webp"
+                direction="left"
+                />
+            </FlexColumn>
+        </section>
+
+</Layout>
+
+

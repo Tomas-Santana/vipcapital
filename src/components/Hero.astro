@@ -38,6 +38,7 @@ const data = langData[lang];
 </div>
 
 <style>
+
     .hero {
         width: 100%;
         height: 100vh;
@@ -92,6 +93,11 @@ const data = langData[lang];
 <script>
     const imageContainer: HTMLElement = document.querySelector('.image-container');
     const images = ['../../images/hero1.webp', '../../images/hero2.webp', '../../images/hero3.webp'];
+
+    // preload images
+    images.forEach((image) => {
+        new Image().src = image;
+    });
     let i = 0;
     setInterval(() => {
         imageContainer.style.background = `url(${images[i]}) no-repeat center center / cover`;

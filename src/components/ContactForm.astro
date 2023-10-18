@@ -37,11 +37,12 @@ const text = lang === 'en' ? textEn : textEs;
                 <h2 class="h2">{text.title}</h2>
                 <p class="main-text">{text.subtitle}</p>
             </div>
-            <form name="contact" data-netlify="true" method="POST">
-                <input type="text" placeholder={text.name}>
-                <input type="email" placeholder={text.email}>
-                <input type="tel" placeholder={text.phone}>
-                <textarea placeholder={text.message} rows="2"></textarea>
+            <form name="contact" action="https://formsubmit.co/info@vip-capital.com" method="POST">
+                <input type="text" name="name" placeholder={text.name}>
+                <input type="email" name="email" placeholder={text.email}>
+                <input type="tel" name="phone" placeholder={text.phone}>
+                <textarea placeholder={text.message} name="details" rows="2"></textarea>
+                <input type="hidden" name="_next" value=`/${lang}/thankyou`>
                 <button class="button-secondary main-text" type="submit">{text.submit}</button>
         
             </form>

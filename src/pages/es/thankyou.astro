@@ -1,0 +1,30 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+<Layout title="404">
+  <div class="content">
+    <img src="../../logo.svg" alt="">
+    <h2 class="h1 text-primary">¡Gracias!</h2>
+    <p class="main-text">Responderemos a tu mensaje lo más pronto posible.</p>
+    <a href="/es/" class="link-text main-text text-primary">
+        De vuelta a la página principal
+    </a>
+  </div>
+</Layout>
+
+<style>
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        gap: 1rem;
+    }
+    .content h2 {
+        text-align: center;
+    }
+    .content img {
+        width: 10rem;
+    }
+</style>
